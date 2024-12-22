@@ -1,0 +1,28 @@
+
+table {
+    width: 100%;
+}
+
+table th {
+    text-align: left;
+}
+
+table td {
+    text-align: center;
+}
+
+.top_header {
+    writing-mode:vertical-rl
+}
+
+.ACCESS_DENIED {
+    background-color: red;
+}
+
+.READ_ONLY {
+    background-color: orange;
+}
+
+.WRITE {
+    background-color: green;
+}
