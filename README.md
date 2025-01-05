@@ -1,24 +1,35 @@
-# NetworkRightsChecker
+# Network Rights Checker
 
-*Windows Only*
+**WINDOWS ONLY**
 
-This tool will mount a network drive to the computer and tests the access rights on the directories. Therefore it tries to read the directory listing and tries to create a file in the directories. As output there is a HTML file, providing all information.
+This tool connects to a network drive and checks the read/write rights for directories in that network drive. The output is written to an output.html file.
 
-The NetworkRightsChecker will always use the config.ini from the executing dirctory. 
+**Please note:** The program uses "net use" commands to connect to the network drives. In windown only 1 username could be used at a time to connect to one server. If you have mouned another drive with the same server. This tool will not work as intended.
 
-## Example Config
+## Configuration
 
-```
+The executable loads a "config.ini" expecting the following values:
+
+```INI
 [general]
-; Subdirectories to check
-level=4
-; Drive Name
 drive=Y
-
-[servers]
-server1=\\192.168.0.100\media
-
-[users]
-username1=password1
-username2=password2
+level=5
 ```
+
+drive => Drive letter for the network drive
+level => Direcory levels to scan
+
+```INI
+[servers]
+server1=\\192.168.0.100\s1\
+server2=\\192.168.0.100\s2\
+```
+
+servers => Contains at least 1 server UNC path
+
+```INI
+[users]
+tropby=test12345
+```
+
+users => Contains at least 1 username with that the tool tries to connect to the network drive and tests the read/write rights
